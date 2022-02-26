@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #div1 {
+      width: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px;
+      /* box-sizing: border-box; */
+    }
+    p {
+      font-size: 16px;
+      line-height: 1;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+  <body>
+    <!-- 
+      问题：div1 的 offsetWidth有多大？ 
+        100+20+2 = 122px 盒宽是不计算margin的值的
+      如果让offsetWidth等于100px，该如何做？
+        box-sizing: border-box; 加了这个后就就意味着是整个border-box的宽度(width:100px 为总宽)
+    
+    -->
+    <div id="div1">this is div1</div>
+
+    <!-- 
+      margin纵向重叠的问题
+      如下代码， AAA 和 BBB 之间的距离是多少？  15px top与boggom重叠了，取大的，重叠的忽略不计
+      答：相邻元素的margin-top和margin-bottom会发生重叠，空内容的 p 标签也会重叠 
+     -->
+    <p>AAA</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>BBB</p>
+    <script>
+      let res = document.getElementById('div1').offsetWidth
+      console.log(res)
+    </script>
+  </body>
+</html>
