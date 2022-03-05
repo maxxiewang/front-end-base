@@ -14,10 +14,3 @@ async function async2() {
 console.log('scrpit start') // 1
 async1() // 执行asnyc1 还没有到异步，要马上去执行
 console.log('script end') // 4
-
-/* 
-  start
-  async1 start
-  async2
-  
-*/
