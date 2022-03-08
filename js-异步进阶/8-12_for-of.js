@@ -6,6 +6,7 @@ function multi(num) {
   })
 }
 
+// for of 循环有用的地方
 const nums = [1, 2, 3]
 ;(async function () {
   for (let i of nums) {
