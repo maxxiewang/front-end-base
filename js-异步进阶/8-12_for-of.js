@@ -14,3 +14,7 @@ const nums = [1, 2, 3]
     console.log(res)
   }
 })()
+let obj = ''
+if (obj.a !== null) {
+  // 相当于 if(obj.a === null || obj.a === undefined)
+}
