@@ -2,7 +2,6 @@
   时间复杂度：程序执行时需要的计算量
   空间复杂度：程序执行时需的内存空间
 */
-
 //! 关于时间复杂度的例子
 function fn1(obj = {}, key) {
   return obj[key] // 复杂度为O(1)
@@ -21,7 +20,7 @@ function fn2(arr = []) {
   }
 }
 
-let arr = [1, 2, 3, 4, 5, 6, 7]
+export let arr = [1, 2, 3, 4, 5, 6, 7]
 
 // 旋转数组K步，使用unshift
 function shiftArr1(key, arr) {
