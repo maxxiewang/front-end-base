@@ -34,3 +34,7 @@ O(log n) 和这个二分思想有点像
 - 注意算法时间复杂度（前端重时间，轻空间）
 - 识破内置API的时间复杂度（如unshift）
 - 单元测试，考虑参数非法情况，提升代码健壮性
+
+#### 队列 Queue
+
+<img src="E:\Vue-project\Blogmas\public\img\image-20220316192909861.png" alt="image-20220316192909861" style="zoom: 50%;" />
