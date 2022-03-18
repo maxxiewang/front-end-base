@@ -14,7 +14,7 @@ queue.push(100) // 入队
 queue.push(200)
 queue.push(300)
 const res = queue.shift() // 出队
-console.log(res)
+// console.log(res)
 
 export class MyQueue {
   private stack1: number[] = []
@@ -46,14 +46,18 @@ export class MyQueue {
   get length(): number {
     return this.stack1.length
   }
+  get resQuene(): number[] {
+    return this.stack1
+  }
 }
 
 // 功能测试
 const q = new MyQueue()
-q.add(1)
-q.add(2)
-q.add(3)
+q.add(100)
+q.add(200)
+q.add(300)
 
 console.log(q.length)
 console.log(q.delete())
-console.log(q.length)
+q.delete()
+console.log(q.resQuene)
