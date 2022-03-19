@@ -13,7 +13,7 @@ interface IlinkListNode {
 }
 
 
-//* 根据数组创建单向链表。 单向链表返回的就是头节点
+//* 根据数组创建单向链表
 function createLinkList(arr: number[]): IlinkListNode {
   const length = arr.length
   if (length === 0) throw new Error('arr is empty')
