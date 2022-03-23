@@ -51,6 +51,7 @@ export class MyQueue {
   }
 }
 
+
 // 功能测试
 const q = new MyQueue()
 q.add(100)
