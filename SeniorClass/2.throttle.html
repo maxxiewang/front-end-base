@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>throttle节流</title>
+  </head>
+  <body>
+    <div
+      id="div1"
+      draggable="true"
+      style="
+        width: 100px;
+        height: 50px;
+        background-color: #f3f3f3;
+        padding: 10px;
+      "
+    >
+      可拖拽
+    </div>
+    <script>
+      function thorottle(fn, delay = 500) {
+        let timer = 0
+        return function () {
+          if (timer) return // 如果当前timer有值的话，直接return
+          timer = setTimeout(() => {
+            fn.apply(this, arguments)
+            timer = 0
+          }, delay)
+        }
+      }
+      const div1 = document.getElementById('div1')
+      div1.addEventListener(
+        'drag',
+        thorottle((e) => {
+          console.log('mouse position', e.offsetX, e.offsetY)
+        }, 100)
+      )
+    </script>
+  </body>
+</html>

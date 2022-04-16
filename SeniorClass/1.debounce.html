@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debounce防抖</title>
+  </head>
+  <body>
+    <input type="text" id="input1" />
+    <button id="btn1">点击</button>
+    <script>
+      function debounce(fn, delay = 2000) {
+        let timer = 0
+        return function () {
+          // console.log('调用debounce,产生一个timer', timer)
+          if (timer) {
+            console.log('是否清除', timer)
+            clearTimeout(timer)
+          }
+          //! 每次触发都会有一个记录，如果连续触发，timer都会清除之前的，直接不是连续触发
+          timer = setTimeout(() => {
+            console.log('此时timer的值 ', timer)
+            fn.apply(this, arguments) // 透传this和参数
+            timer = 0
+          }, delay)
+        }
+      }
+
+      const input1 = document.getElementById('input1')
+      input1.addEventListener(
+        'keyup',
+        debounce(() => {
+          console.log('发起请求', input1.value)
+        })
+      )
+
+      const btn1 = document.getElementById('btn1')
+      btn1.addEventListener(
+        'click',
+        debounce(() => {
+          console.log('发起请求')
+        })
+      )
+    </script>
+  </body>
+</html>
