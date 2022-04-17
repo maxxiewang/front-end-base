@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // 数组，两种皆可
+      // const arr = [10, 20, 30]
+      // for (let key in arr) {
+      //   console.log(key)
+      // }
+      // for (let val of arr) {
+      //   console.log(val)
+      // }
+      // // 对象，for of 不可迭代
+      // const obj = {
+      //   name: 'zhangsan',
+      //   age: 18,
+      // }
+      // for (let key in obj) {
+      //   console.log(key)
+      // }
+      // for (let val of obj) {
+      //   console.log(val) // 对象不可以用 for... of
+      // }
+      // // 字符串 , 两种皆可以遍历
+      // const str = 'abc'
+      // for (let key in str) {
+      //   console.log(key)
+      // }
+      // for (let val of str) {
+      //   console.log(val)
+      // }
+      function fn() {
+        for (let arg of arguments) {
+          console.log(arg)
+        }
+      }
+      fn(100, 200, 300)
+    </script>
+  </body>
+</html>
