@@ -9,6 +9,7 @@ export default {
   name: 'CustomEvent1',
   methods: {
     showMsg(msg) {
+      console.log('触发了CustomEvent1')
       console.log(msg)
     }
   },

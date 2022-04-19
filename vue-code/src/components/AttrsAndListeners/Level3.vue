@@ -1,7 +1,7 @@
 <template>
-    <p>Level3</p>
+    <p @click="showC">Level3</p>
 
-    <HelloWorld msg="hello 双越" ref="hello1"/>
+    <HelloWorld :msg="msg" ref="hello1"/>
 </template>
 
 <script>
@@ -15,12 +15,19 @@ export default {
     inheritAttrs: false,
     data() {
         return {
+          msg:"hello LV22223"
         }
+    },
+    methods: {
+      showC(){
+        this.$refs.hello1.showMsg()
+      }
     },
     created() {
         // console.log('level3', Object.keys(this.$attrs)) // 是 props 和 emits 后补
     },
     mounted() {
+      //! $parent 或是 $refs，只能在mounted获取，created获取不到
         // console.log(this.$parent.getX())
         console.log(this.$refs.hello1.name)
     },

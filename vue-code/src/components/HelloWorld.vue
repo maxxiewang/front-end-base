@@ -11,12 +11,15 @@ export default {
   emits: ['showMsg'], // Vue3
   data() {
     return {
-      name: 'hello-world'
+      name: 'hello-world组件的name'
     }
   },
   methods: {
     clickHandler() {
       this.$emit('showMsg', 'hello world')
+    },
+    showMsg(){
+      console.log('showMsg in helloWorld')
     }
   },
 }
