@@ -1,5 +1,5 @@
 <template>
-    <p>Level1</p>
+    <p @click="changeInfo">Level1</p>
     <Level2
         :a="a"
         :b="b"
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// import { computed } from '@vue/runtime-core'
 import Level2 from './Level2'
 
 export default {
@@ -20,9 +21,20 @@ export default {
         return {
             a: 'aaa',
             b: 'bbb',
-            c: 'ccc'
+            c: 'ccc',
+            name:'aavv'
         }
     },
+    // provide:{ 
+    //   info:'infoA.'
+    // },
+    // provide(){
+    //   return {
+    //     info:computed(()=>{
+    //       this.name.value
+    //     })
+    //   }
+    // },
     methods: {
         getA() {
             return this.a
@@ -32,6 +44,9 @@ export default {
         },
         getC() {
             return this.c
+        },
+        changeInfo(){
+          console.log('changeInfo',this.a)
         }
     }
 }

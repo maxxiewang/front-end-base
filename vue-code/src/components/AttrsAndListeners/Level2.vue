@@ -26,6 +26,7 @@ export default {
             z: 'zzz'
         }
     },
+    // inject:['info'],
     methods: {
         getX() {
             return this.x
