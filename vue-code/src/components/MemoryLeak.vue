@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import event from '../utils/event.js'
 export default {
   name: 'Memory Leak Demo',
   data() {
@@ -18,10 +19,12 @@ export default {
   mounted() {
       window.addEventListener('resize', this.printArr)
       // 自定义事件也是这样
+      event.on("prt",this.printArr)
   },
   // Vue2 - beforeDestroy
   beforeUnmount() {
       window.removeEventListener('resize', this.printArr)
+      event.off("prt",this.printArr)
   },
 }
 </script>

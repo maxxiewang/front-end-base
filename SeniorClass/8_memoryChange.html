@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        深拷贝与浅拷贝
+      */
+      let obj = {
+        name: 'tony',
+        age: 18,
+        plus: {
+          xx: 11,
+          yy: 'yyy',
+        },
+      }
+      let obj2 = JSON.parse(JSON.stringify(obj))
+      const obj3 = { ...obj }
+      obj.age = 22
+      obj.plus.xx = 22 // 关于浅拷贝的弊端
+      console.log(obj2)
+    </script>
+  </body>
+</html>
