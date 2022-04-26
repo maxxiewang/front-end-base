@@ -5,17 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/x-data-spreadsheet@1.1.9/dist/xspreadsheet.css"
-    />
-    <script src="https://unpkg.com/x-data-spreadsheet@1.1.9/dist/xspreadsheet.js"></script>
   </head>
+
   <body>
-    <div id="xspreadsheet"></div>
-    <script>
-      import Spreadsheet from 'x-data-spreadsheet'
-      x_spreadsheet('#xspreadsheet')
-    </script>
+    <div id="div1">abc</div>
   </body>
+  <script>
+    const div = document.getElementById('div1')
+    div.innerHTML = '11'
+    console.log(div)
+  </script>
 </html>
