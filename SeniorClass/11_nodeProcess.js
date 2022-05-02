@@ -1,5 +1,6 @@
 const http = require('http')
-const fork = require('child_process').fork
+const fork = require('child_process').fork // frok 和 cluster
+
 const server = http.createServer((req, res) => {
   if (req.url === '/getsum') {
     console.info('主进程id', process.pid)
@@ -10,9 +11,9 @@ const server = http.createServer((req, res) => {
       console.log('主进程接收到的信息', data)
       res.end('sum is ' + data)
     })
+    // 监听子进程的意外情况
     computeProcess.on('close', () => {
-      // 监听子进程的意外情况
-      console.info('子进程关闭了')
+      console.info('子进程因报错而关闭')
       computeProcess.kill()
       res.end('errorrrr')
     })

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>JS Bridge</p>
+    <iframe id="iframe1" frameborder="1"></iframe>
+    <script>
+      const iframe1 = document.getElementById('iframe1')
+      iframe1.onload = () => {
+        console.log('1')
+        const content = iframe1.contentWindow.document.body.innerHTML
+        // console.info('content', content)
+      }
+      console.log('2')
+      iframe1.src =
+        'http://127.0.0.1:5500/front-end-base/SeniorClass/3.3_vw-vh.html'
+
+      // 封装 JS-Bridge
+      const sdk = {
+        invoke(url, data = {}, onSuccess, onErr) {
+          const iframe = document.createElement('iframe')
+          iframe.style.visibility = 'hidden'
+          document.body.appendChild(iframe)
+          // iframe.src = `my-app-name://api/gerVersion`
+          iframe.onload = () => {
+            const content = iframe.contentWindow.document.body.innerHTML
+            onSuccess(JSON.parse(content))
+            iframe.remove()
+          }
+          iframe.onErr = () => {
+            onErr()
+            iframe.remove()
+          }
+          iframe.src = `my-app-name://${url}?data=${JSON.stringify(data)}`
+        },
+        fn1(data, onSuccess, onError) {
+          // 类似扫一扫，获取地理位置等功能
+          this.invoke('api/fn1', data, onSuccess, onError)
+        },
+        fn2(data, onSuccess, onError) {
+          // 类似扫一扫，获取地理位置等功能
+          this.invoke('api/fn2', data, onSuccess, onError)
+        },
+      }
+
+      sdk.fn1()
+    </script>
+  </body>
+</html>
