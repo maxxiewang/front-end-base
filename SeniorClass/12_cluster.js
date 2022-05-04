@@ -11,7 +11,7 @@ if (cluster.isMaster) {
     cluster.fork() // 进程守护
   })
 } else {
-  // 多个子进程会共离一个tcp连接，接供一份网络服务，没有端口冲突
+  // 多个子进程会共享一个tcp连接，接供一份网络服务，没有端口冲突
   const server = http.createServer((req, res) => {
     console.info('server...')
     res.writeHead(200)
