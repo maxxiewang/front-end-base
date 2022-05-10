@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>websocket</title>
+  </head>
+  <body>
+    <p>websocket page 1</p>
+    <input type="text" id="input1" />
+    <button id="btn-send">发送消息</button>
+
+    <script>
+      const ws = new WebSocket('ws://127.0.0.1:3000')
+      ws.onopen = () => {
+        console.info('opened')
+        ws.send('client1 opened')
+      }
+      ws.onmessage = (event) => {
+        console.info('client1 received', event.data)
+      }
+      const btnSend = document.getElementById('btn-send')
+      const input = document.getElementById('input1')
+      input.addEventListener('keydown', (event) => {
+        if (event.keyCode === 13) {
+          let inputStr = document.getElementById('input1').value
+          ws.send(inputStr)
+          document.getElementById('input1').value = ''
+        }
+      })
+      btnSend.addEventListener('click', () => {
+        let inputStr = document.getElementById('input1').value
+        ws.send(inputStr)
+        document.getElementById('input1').value = ''
+      })
+    </script>
+  </body>
+</html>

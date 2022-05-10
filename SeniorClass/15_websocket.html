@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>websocket</title>
+  </head>
+  <body>
+    <p>websocket</p>
+    <button id="btn-send">发送消息</button>
+    <ul></ul>
+    <script>
+      const ws = new WebSocket('ws://127.0.0.1:3000') // 这个WebSocket是浏览器原生API
+      ws.onopen = () => {
+        console.log('opend')
+        ws.send('client opend')
+      }
+      ws.onmessage = (event) => {
+        let li = document.createElement('li')
+        li.innerText = event.data
+
+        const ul1 = document.querySelector('ul')
+        ul1.appendChild(li)
+        console.log('收到的信息：', event.data)
+      }
+      const btnSend = document.getElementById('btn-send')
+      let i = 0
+      btnSend.addEventListener('click', () => {
+        ws.send(i++)
+      })
+    </script>
+  </body>
+</html>
