@@ -19,7 +19,7 @@ class MyStatistic {
     const newUrl = `${url}?${paramArr.join('&')}`
     //! 关键，要用image去发送。好处：1、可跨域， 2、兼容性极好
     const img = document.createElement('img')
-    img.src = newUrl // 通过get请求发出去
+    img.src = newUrl //! 通过get请求发出去
 
     return newUrl
   }
@@ -36,6 +36,11 @@ class MyStatistic {
     window.addEventListener('error', (event) => {
       const { error, lineno, colno } = event
       // 监听到了后，统一发送给error函数去发送
+      this.error(error, { lineno, colno })
+    })
+    //* 对于Promise 未 catch住的报错
+    window.addEventListener('unhandledrejection', (event) => {
+      this.error(new Error(event.reason), { type: 'unhandledrejection' })
     })
   }
   getPV() {
@@ -47,10 +52,13 @@ class MyStatistic {
     PV_URL_SET.add(href)
   }
   getEvent(key, val) {
-    const url = 'xxx' // 自定义事件统计的serverAPI
+    const url = 'serverAPI' // 自定义事件统计的serverAPI
     this.send(url, { key: val })
   }
-  error(key, info) {
+  error(error, info = {}) {
+    const errorUrl = 'errorUrl'
+    const { message, stack } = error
     // try...catch部分是onerror监听不到的，调用此事件
+    this.send(errorUrl, { message, stack, ...info })
   }
 }
