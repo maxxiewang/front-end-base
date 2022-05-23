@@ -3,40 +3,42 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
-    <!-- <TplDemo/> -->
+    <!-- <TplDemo /> -->
     <!-- <ConditionDemo/> -->
-    <!-- <EventDemo/> -->
-
-    <!-- <ComponentDemo/> -->
+    <!-- <EventDemo /> -->
+    <!-- <FormDemo /> -->
+    <ComponentDemo />
 
     <!-- <AdvancedUse/> -->
 
-    <CartDemo/>
+    <!-- <CartDemo/> -->
+    <!-- <ListDemo /> -->
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
 // import TplDemo from './components/BaseUse/TplDemo'
 // import ConditionDemo from './components/BaseUse/ConditionDemo'
 // import EventDemo from './components/BaseUse/EventDemo'
-
-// import ComponentDemo from './components/ComponentsDemo/index'
-
+import ComponentDemo from './components/ComponentsDemo/index'
 // import AdvancedUse from './components/AdvancedUse/index'
-
-import CartDemo from './components/Cart/index'
+// import CartDemo from './components/Cart/index'
+// import ListDemo from './components/BaseUse/ListDemo'
+// import FormDemo from './components/BaseUse/FormDemo'
 
 export default {
   name: 'app',
   components: {
+    // ListDemo,
+    // TplDemo,
     // HelloWorld
-    // EventDemo
-    // ComponentDemo
+    // EventDemo,
+    ComponentDemo,
     // AdvancedUse
-    CartDemo
-  }
+    // CartDemo,
+    // FormDemo,
+  },
 }
 </script>
 
