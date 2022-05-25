@@ -9,8 +9,9 @@ export default {
   name: 'CustomEvent2',
   methods: {
     trigger() {
+      console.log('--sxx--')
       event.emit('showMsg', 'hello custom event')
-    }
+    },
   },
 }
 </script>

@@ -7,9 +7,9 @@
     <!-- <ConditionDemo/> -->
     <!-- <EventDemo /> -->
     <!-- <FormDemo /> -->
-    <ComponentDemo />
+    <!-- <ComponentDemo /> -->
 
-    <!-- <AdvancedUse/> -->
+    <AdvancedUse />
 
     <!-- <CartDemo/> -->
     <!-- <ListDemo /> -->
@@ -21,8 +21,8 @@
 // import TplDemo from './components/BaseUse/TplDemo'
 // import ConditionDemo from './components/BaseUse/ConditionDemo'
 // import EventDemo from './components/BaseUse/EventDemo'
-import ComponentDemo from './components/ComponentsDemo/index'
-// import AdvancedUse from './components/AdvancedUse/index'
+// import ComponentDemo from './components/ComponentsDemo/index'
+import AdvancedUse from './components/AdvancedUse/index'
 // import CartDemo from './components/Cart/index'
 // import ListDemo from './components/BaseUse/ListDemo'
 // import FormDemo from './components/BaseUse/FormDemo'
@@ -34,8 +34,8 @@ export default {
     // TplDemo,
     // HelloWorld
     // EventDemo,
-    ComponentDemo,
-    // AdvancedUse
+    // ComponentDemo,
+    AdvancedUse,
     // CartDemo,
     // FormDemo,
   },
