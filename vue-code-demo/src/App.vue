@@ -9,9 +9,9 @@
     <!-- <FormDemo /> -->
     <!-- <ComponentDemo /> -->
 
-    <AdvancedUse />
+    <!-- <AdvancedUse /> -->
 
-    <!-- <CartDemo/> -->
+    <CartDemo />
     <!-- <ListDemo /> -->
   </div>
 </template>
@@ -22,8 +22,8 @@
 // import ConditionDemo from './components/BaseUse/ConditionDemo'
 // import EventDemo from './components/BaseUse/EventDemo'
 // import ComponentDemo from './components/ComponentsDemo/index'
-import AdvancedUse from './components/AdvancedUse/index'
-// import CartDemo from './components/Cart/index'
+// import AdvancedUse from './components/AdvancedUse/index'
+import CartDemo from './components/Cart/index'
 // import ListDemo from './components/BaseUse/ListDemo'
 // import FormDemo from './components/BaseUse/FormDemo'
 
@@ -35,8 +35,8 @@ export default {
     // HelloWorld
     // EventDemo,
     // ComponentDemo,
-    AdvancedUse,
-    // CartDemo,
+    // AdvancedUse,
+    CartDemo,
     // FormDemo,
   },
 }
